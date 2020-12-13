@@ -1,11 +1,18 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import Login from '../components/Login.vue'
+import store from '../store'
+import Dashboard from '../components/Dashboard.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    name: 'Login',
-    component: Login
+    name: 'Dashboard',
+    component: Dashboard
+  },
+  {
+    path:'/login',
+    name:'Login',
+    component:Login
   },
   {
     path: '/about',
@@ -21,5 +28,21 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
+
+router.beforeEach((to,from,next) =>{
+  if(to.name == "Login")
+  {
+    next()
+  }
+  else
+  {
+    if(!store.getters.isLoggedIn)
+    {
+      next({name:"Login"})
+    }
+    else
+      next();
+  }
+});
 
 export default router

@@ -15,7 +15,6 @@
                 <div class="rounded-md shadow-sm -space-y-px">
                     <div>
                         <label for="login" class="sr-only">Login</label>
-                        <!-- <input v-bind="login" class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm transition-colors duration-300" placeholder="Login"> -->
                         <text-input placeholder='Login' type='text' v-model="login" id='login' />
                     </div>
                     <div>
@@ -40,9 +39,6 @@
                 </div>
 
                 <div>
-                 <!--    <button class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indivgo-700 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                        Zaloguj się
-                    </button> -->
                     <Button text='Zaloguj się!' v-on:click="print" />
                 </div>
             </div>
@@ -51,6 +47,7 @@
 </template>
 
 <script lang="ts">
+import { User } from '@/models/User';
 import { Options, Vue } from 'vue-class-component';
 import Button from './elements/Button.vue'
 import TextInput from './elements/TextInput.vue';
@@ -72,6 +69,11 @@ export default class Login extends Vue {
     print(){
         console.log(this.login);
         console.log(this.password);
+        const user = new User();
+        user.name= this.login;
+        user.id = 1;
+        this.$store.commit('setUser',user);
+        this.$router.push({name:"Dashboard"});
     }
 }
 </script>

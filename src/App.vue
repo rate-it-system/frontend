@@ -1,30 +1,18 @@
 <template>
   <div class="container mx-auto px-4">
-
   <router-view />  
   </div>
   
 </template>
 
-<style lang="scss">
-#app {
- /*  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; */
-  /* text-align: center;
-  color: #2c3e50; */
+<script lang="ts">
+import { Options, Vue } from 'vue-class-component'
+@Options()
+export default class App extends Vue {
+  
 }
+</script>
 
-/* #nav {
-  padding: 30px;
+<style lang="scss">
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-} */
 </style>
