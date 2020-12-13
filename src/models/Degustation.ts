@@ -1,18 +1,18 @@
 class Degustation {
-    name: string = ''
+    name = ''
     products: DegustationProduct[] = []
 }
 
 
 
 class DegustationProduct{
-    productId : number = 0
-    degustationId: number = 0
+    productId = 0
+    degustationId = 0
 }
 
 class DegustationParameter{
-    name: string = ''
-    degustationId: number = 0
+    name = ''
+    degustationId = 0
 }
 
 export {Degustation, DegustationParameter, DegustationProduct}

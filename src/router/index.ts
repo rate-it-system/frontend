@@ -3,6 +3,7 @@ import Login from '../components/Login.vue'
 import store from '../store'
 import Dashboard from '../components/Dashboard.vue';
 import Landing from '../components/Landing.vue'
+import UserDegustations from '../components/UserDegustations.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -19,9 +20,17 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path:'/dashboard',
-    name:'Dashboard',
     component:Dashboard,
-    meta:{requireAuth:true}
+    meta:{requireAuth:true},
+    children:[
+      {
+        path:'',
+        name:'MainView',
+        component:UserDegustations,
+        meta:{name:"Degustacje"}
+      }
+
+    ]
   }
 ]
 

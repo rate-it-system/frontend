@@ -67,13 +67,11 @@ export default class Login extends Vue {
     private rememberMe = false;
 
     print(){
-        console.log(this.login);
-        console.log(this.password);
         const user = new User();
         user.name= this.login;
         user.id = 1;
         this.$store.commit('setUser',user);
-        this.$router.push({name:"Dashboard"});
+        this.$router.push({name:"MainView"});
     }
 }
 </script>

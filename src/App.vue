@@ -1,8 +1,8 @@
 <template>
   <div class="container mx-auto sm:px-4 px-1">
-    <transition name="slide-right">
+    
       <router-view />  
-    </transition>
+    
   </div>
   
 </template>
