@@ -1,9 +1,19 @@
 <template>
-    
+      <button class="button-primary">
+            {{ this.text }}
+      </button>
 </template>
 
 <script>
-export default {
+
+import {Options, Vue} from 'vue-class-component'
+
+@Options({
+    props:{
+       text:String
+    }
+})
+export default class Button extends Vue{
     
 }
 </script>

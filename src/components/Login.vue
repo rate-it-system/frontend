@@ -15,11 +15,12 @@
                 <div class="rounded-md shadow-sm -space-y-px">
                     <div>
                         <label for="login" class="sr-only">Login</label>
-                        <input v-bind="login" class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm transition-colors duration-300" placeholder="Login">
+                        <!-- <input v-bind="login" class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm transition-colors duration-300" placeholder="Login"> -->
+                        <text-input placeholder='Login' type='text' v-model="login" id='login' />
                     </div>
                     <div>
                         <label for="password" class="sr-only">Hasło</label>
-                        <input v-bind="password" type="password" class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Hasło">
+                        <text-input placeholder='Hasło' type='password' v-model="password" id='password' />
                     </div>
                   
                 </div>
@@ -39,10 +40,10 @@
                 </div>
 
                 <div>
-                    <button class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indivgo-700 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                 <!--    <button class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indivgo-700 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                         Zaloguj się
-                    </button>
-                    
+                    </button> -->
+                    <Button text='Zaloguj się!' v-on:click="print" />
                 </div>
             </div>
         </div>
@@ -50,11 +51,27 @@
 </template>
 
 <script lang="ts">
-import { Vue } from 'vue-class-component';
+import { Options, Vue } from 'vue-class-component';
+import Button from './elements/Button.vue'
+import TextInput from './elements/TextInput.vue';
+
+
+@Options({
+    components:{
+        Button,
+        TextInput
+    }
+
+})
 export default class Login extends Vue {
+
     private login  = '';
     private password = '';
     private rememberMe = false;
 
+    print(){
+        console.log(this.login);
+        console.log(this.password);
+    }
 }
 </script>
