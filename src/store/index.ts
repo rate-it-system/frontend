@@ -9,6 +9,9 @@ export default createStore<StoreState>({
   mutations: {
     setUser(state, user: User){
       state.user = user;
+      },
+      removeUser(state){
+        state.user = null;
       }
   },
   getters:{

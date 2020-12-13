@@ -1,13 +1,15 @@
 <template>
-  <div class="container mx-auto px-4">
-  <router-view />  
+  <div class="container mx-auto sm:px-4 px-1">
+    <transition name="slide-right">
+      <router-view />  
+    </transition>
   </div>
   
 </template>
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component'
-@Options()
+
 export default class App extends Vue {
   
 }

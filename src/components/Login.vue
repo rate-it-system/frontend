@@ -1,8 +1,8 @@
 <template>
-    <div class="min-h-screen flex items-center justify-center bg-gray-100">
+    <div class="min-h-screen flex items-center justify-center bg-gray-100 bg-scroll bg-center bg-cover px-2 sm:px-0" style="background-image: url('background.jpg')">
         <div class="max-w-md w-full space-y-8 bg-white border-2 border-indigo-700 rounded-md p-3 shadow-xl">
             <div>
-                <img class="mx-auto h-24 w-auto" src="https://via.placeholder.com/100x100?text=LOGO">
+                <img class="mx-auto h-24 w-auto" src="beer.png">
                 <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
                     Zaloguj się
                 </h2>

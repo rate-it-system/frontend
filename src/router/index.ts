@@ -2,25 +2,26 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import Login from '../components/Login.vue'
 import store from '../store'
 import Dashboard from '../components/Dashboard.vue';
+import Landing from '../components/Landing.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    name: 'Dashboard',
-    component: Dashboard
+    name: 'Landing',
+    component: Landing,
+    meta:{requireAuth:false}
   },
   {
     path:'/login',
     name:'Login',
-    component:Login
+    component:Login,
+    meta:{requireAuth:false, isLogin:false}
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path:'/dashboard',
+    name:'Dashboard',
+    component:Dashboard,
+    meta:{requireAuth:true}
   }
 ]
 
@@ -30,16 +31,20 @@ const router = createRouter({
 })
 
 router.beforeEach((to,from,next) =>{
-  if(to.name == "Login")
+
+  
+  if(to.matched.some(record => record.meta.requireAuth))
   {
-    next()
+      const auth = store.getters.isLoggedIn as boolean;
+      if(!auth)
+        next({name:"Login"});
+      else
+        next();
   }
   else
   {
-    if(!store.getters.isLoggedIn)
-    {
-      next({name:"Login"})
-    }
+    if(to.matched.some(record => record.meta.isLogin))
+      next({name:"Dashboard"});
     else
       next();
   }
