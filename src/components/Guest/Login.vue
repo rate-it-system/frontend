@@ -13,7 +13,6 @@ import axios from 'axios';
 export default {
   name: 'Login',
   components: {
-
   },
   data() {
     return {
@@ -24,9 +23,9 @@ export default {
     }
   },
   methods: {
-    submit() {
-      const response = axios.post("login");
-      console.log(response);
+    async submit() {
+      const response = axios.post("login", this.form);
+      console.log(response.data);
     }
   }
 }
