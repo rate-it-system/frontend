@@ -1,4 +1,4 @@
-# frontend
+# rate-it
 
 ## Project setup
 ```
