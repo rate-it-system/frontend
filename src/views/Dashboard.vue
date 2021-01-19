@@ -47,7 +47,9 @@ export default {
     },
     deleteDegustation: function (degustation) {
       console.log(degustation);
-      axios.delete('/degustations/' + degustation.id);
+      axios.delete('/degustations/' + degustation.id).then(() => {
+        this.load();
+      });
     },
   },
   mounted() {
