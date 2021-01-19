@@ -5,7 +5,7 @@
 
       <div class="row justify-content-center">
         <div class="col-md-8">
-          <DegustationCard class="card" style="margin-bottom: 5px;" v-for="degustation in degustations" :key="degustation.id" v-bind:degustation="degustation">
+          <DegustationCard class="card" style="margin-bottom: 5px;" v-for="degustation in degustations" :key="degustation.id" :load="load" v-bind:degustation="degustation">
           </DegustationCard>
           <a class="btn btn-info float-right" style="margin-left: 5px;">Następne</a>
           <router-link to="/createDegustation" class="btn btn-success float-right" style="margin-left: 5px;">+Nowa degustacja+</router-link>
@@ -36,12 +36,6 @@ export default {
           .then(response => {
             this.degustations = response.data;
           });
-    },
-    deleteDegustation: function (degustation) {
-      console.log(degustation);
-      axios.delete('/degustations/' + degustation.id).then(() => {
-        this.load();
-      });
     },
   },
   mounted() {

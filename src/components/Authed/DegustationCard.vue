@@ -19,10 +19,21 @@
 
 <script>
 
+import axios from "axios";
+
 export default {
   name: "DegustatyonCard",
   props: {
-    degustation: Object
+    degustation: Object,
+    load: Function
+  },
+  methods: {
+    deleteDegustation: function (degustation) {
+      console.log(degustation);
+      axios.delete('/degustations/' + degustation.id).then(() => {
+        this.load();
+      });
+    },
   },
 };
 </script>
