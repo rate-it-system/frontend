@@ -27,7 +27,9 @@ export default {
       login: 'login'
     }),
     submit() {
-      this.login(this.form);
+      this.login(this.form).then(() => {
+        this.$router.push("/dashboard");
+      });
     }
   }
 };

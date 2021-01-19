@@ -4,7 +4,7 @@ import axios from "axios";
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
+const store = new Vuex.Store({
     namespace: true,
     state: {
         token: null,
@@ -64,3 +64,4 @@ export default new Vuex.Store({
     },
     modules: {}
 });
+export default store;
