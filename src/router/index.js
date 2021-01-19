@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Guest from "../views/Guest.vue";
 import Dashboard from "../views/Dashboard.vue";
+import CreateDegustation from "../views/CreateDegustation.vue";
 
 Vue.use(VueRouter);
 const routes = [
@@ -14,6 +15,11 @@ const routes = [
         path: "/dashboard",
         name: "Dashboard",
         component: Dashboard,
+    },
+    {
+        path: "/createDegustation",
+        name: "DreateDegustation",
+        component: CreateDegustation,
     }
 ];
 

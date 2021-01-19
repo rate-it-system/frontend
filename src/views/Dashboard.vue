@@ -11,7 +11,7 @@
               {{ degustation.description }}
               <div class="card">
                 <div class="card-header">Zaproś znajomych</div>
-                <input class="card-body" v-model="degustation.invitation_key">
+                <input class="card-body" v-model="degustation.invitation_key" disabled>
               </div>
               <a class="btn btn-success float-right" style="margin-left: 5px;">Start</a>
               <a class="btn btn-info float-right" style="margin-left: 5px;">Edytuj</a>
@@ -20,6 +20,7 @@
             </div>
           </div>
           <a class="btn btn-info float-right" style="margin-left: 5px;">Następne</a>
+          <router-link to="/createDegustation" class="btn btn-success float-right" style="margin-left: 5px;">+Nowa degustacja+</router-link>
           <a class="btn btn-info float-left" style="margin-left: 5px;">Poprzednie</a>
         </div>
       </div>

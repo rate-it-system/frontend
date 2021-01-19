@@ -1,6 +1,8 @@
 <template>
   <div id="app">
+    <router-link to="/">wyloguj</router-link> <br />
     {{ messages}}
+    <hr />
     <router-view />
   </div>
 </template>
