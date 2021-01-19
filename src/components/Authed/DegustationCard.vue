@@ -14,7 +14,6 @@
       <a class="btn btn-success float-right" style="margin-left: 5px;">Start</a>
       <button v-if="editing" class="btn btn-success float-right" v-on:click="editDegustation(degustation)" style="margin-left: 5px;">Zapisz</button>
       <button v-else class="btn btn-info float-right" v-on:click="editing = true" style="margin-left: 5px;">Edytuj</button>
-      <a class="btn btn-info float-right" style="margin-left: 5px;">Lista uczestników</a>
       <button v-on:click="deleteDegustation(degustation)" class="btn btn-danger float-right" style="margin-left: 5px;">Usuń</button>
     </div>
   </div>
