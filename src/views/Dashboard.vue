@@ -16,7 +16,7 @@
               <a class="btn btn-success float-right" style="margin-left: 5px;">Start</a>
               <a class="btn btn-info float-right" style="margin-left: 5px;">Edytuj</a>
               <a class="btn btn-info float-right" style="margin-left: 5px;">Lista uczestników</a>
-              <a class="btn btn-danger float-right" style="margin-left: 5px;">Usuń</a>
+              <button v-on:click="deleteDegustation(degustation)" class="btn btn-danger float-right" style="margin-left: 5px;">Usuń</button>
             </div>
           </div>
           <a class="btn btn-info float-right" style="margin-left: 5px;">Następne</a>
@@ -44,7 +44,11 @@ export default {
           .then(response => {
             this.degustations = response.data;
           });
-    }
+    },
+    deleteDegustation: function (degustation) {
+      console.log(degustation);
+      axios.delete('/degustations/' + degustation.id);
+    },
   },
   mounted() {
     this.load();
