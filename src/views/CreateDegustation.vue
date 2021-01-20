@@ -1,9 +1,13 @@
 <template>
   <div class="dashboard">
     <form @submit.prevent="submit">
-        <input v-model="form.name" placeholder="Nazwa" name="name" id="name"><br />
-      <textarea v-model="form.description" name="description" id="description"></textarea><br />
-      <button type="submit">Loguj</button>
+         <label>Nazwa</label>
+                <input type="Name" class="form-control form-control-lg"/>
+				
+       <label>Opis</label>
+                <textarea class="form-control" id="Opis" rows="3"></textarea>
+				
+	   <button type="submit" class="btn btn-primary btn-lg btn-block">Loguj</button>
     </form>
   </div>
 </template>
