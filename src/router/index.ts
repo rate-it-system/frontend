@@ -13,6 +13,18 @@ const routes: Array<RouteRecordRaw> = [
     meta:{requireAuth:false}
   },
   {
+    path:'/authors',
+    name:'Authors',
+    component:Authors,
+    meta:{requireAuth:false, isLogin:false}
+  },
+  {
+    path:'/working',
+    name:'Working',
+    component:Working,
+    meta:{requireAuth:false, isLogin:false}
+  },
+  {
     path:'/login',
     name:'Login',
     component:Login,

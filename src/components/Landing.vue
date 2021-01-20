@@ -10,7 +10,7 @@
         <nav class="relative flex items-center justify-between sm:h-10 lg:justify-start" aria-label="Global">
           <div class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
             <div class="flex items-center justify-between w-full md:w-auto">
-              <a href="#">
+              <a href="/">
                 <span class="sr-only">Workflow</span>
                 <img class="h-8 w-auto sm:h-10" src="beer.png">
               </a>
@@ -27,9 +27,9 @@
           </div>
           <div class="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
 
-            <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Twórcy</a>
+            <a href="/authors" class="font-medium text-gray-500 hover:text-gray-900">Twórcy</a>
 
-            <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Jak to działa?</a>
+            <a href="/working" class="font-medium text-gray-500 hover:text-gray-900">Jak to działa?</a>
 
             <router-link to="/login" href="#" class="font-medium text-indigo-600 hover:text-indigo-500">Zaloguj się</router-link>
           </div>
