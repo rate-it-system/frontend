@@ -1,9 +1,11 @@
 <template>
   <div class="login">
     <form @submit.prevent="submit">
-      <input type="text" name="login" id="login" placeholder="login" v-model="form.login"><br>
-      <input type="password" name="password" id="password" placeholder="hasło" v-model="form.password"><br>
-      <button type="submit">Loguj</button>
+             <label>Email address</label>
+                <input type="email" class="form-control form-control-lg" />
+       <label>Password</label>
+                <input type="password" class="form-control form-control-lg" />
+      <button type="submit" class="btn btn-primary btn-lg btn-block">Loguj</button>
       <br>
     </form>
   </div>
