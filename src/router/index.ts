@@ -3,7 +3,11 @@ import Login from '../components/Login.vue'
 import store from '../store'
 import Dashboard from '../components/Dashboard.vue';
 import Landing from '../components/Landing.vue'
+import Authors from '../components/Authors.vue'
+import Working from '../components/Working.vue'
 import UserDegustations from '../components/UserDegustations.vue';
+import Degustation from '../components/Degustation.vue';
+import CreateDegustations from '../components/createDegustations.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -11,6 +15,18 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Landing',
     component: Landing,
     meta:{requireAuth:false}
+  },
+  {
+    path:'/degustation',
+    name:'Degustation',
+    component:Degustation,
+    meta:{requireAuth:false, isLogin:false}
+  },
+  {
+    path:'/createDegustations',
+    name:'CreateDegustations',
+    component:CreateDegustations,
+    meta:{requireAuth:false, isLogin:false}
   },
   {
     path:'/authors',
@@ -41,8 +57,7 @@ const routes: Array<RouteRecordRaw> = [
         component:UserDegustations,
         meta:{name:"Degustacje"}
       }
-
-    ]
+    ],
   }
 ]
 

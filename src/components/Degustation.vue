@@ -11,9 +11,9 @@
                         <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Centrum ocen</a>
                         <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Zaproszenia</a>
                         <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Moje oceny</a>
-                        <a href="/createDegustations"  class="bg-white text-gray px-3 py-2 rounded-md text-sm font-medium">Stwórz pokój do degustacji</a>
+                        <a href="/Dashboard"  class="bg-white text-gray px-3 py-2 rounded-md text-sm font-medium">Tablica</a>
                     </div>
-                   
+
                 </div>
                  <div class="flex justify-end">
                         <span class="text-white text-sm font-medium py-2 px-3">Zalogowany jako: Jan Kowalski</span>
@@ -21,12 +21,12 @@
                     </div>
             </div>
         </div>
-        
+
     </nav>
     <header class="bg-white shadow">
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
             <h1 class="text-3xl font-bold leading-tight text-gray-900">
-            {{ $route.meta.name }}
+            Degustacja<br>
             </h1>
         </div>
     </header>
@@ -34,30 +34,37 @@
         <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
             <div class="px-4 py-6 sm:px-0">
                 <div class="border-4 border-dashed border-gray-200 rounded-lg h-96">
-                    <router-view></router-view>
+                    <div class="min-h-screen flex items-center justify-center bg-gray-100 bg-scroll bg-center bg-cover px-2 sm:px-0" style="background-image: url('background.jpg')">
+
+                    </div>
                 </div>
             </div>
         </div>
     </main>
-    
-    
-    
-    
+
+
+
+
 </div>
 </template>
 
 
 <script lang="ts">
-import { Options, Vue } from "vue-class-component";
-export default class Dashboard extends Vue
-{
 
-    logout(){
-        this.$store.commit('removeUser');
-        this.$router.push({name:'Landing'})
+import Button from './elements/Button.vue'
+import TextInput from './elements/TextInput.vue';
+import { Degustation } from '@/models/Degustation';
+import { Options, Vue } from 'vue-class-component';
+
+@Options({
+    components:{
+        Button,
+        TextInput
     }
 
-}
+})
+export default class Login extends Vue {
 
+}
 
 </script>
