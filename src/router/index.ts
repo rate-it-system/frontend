@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
+import Registration from '../components/Registration.vue'
 import Login from '../components/Login.vue'
 import store from '../store'
 import Dashboard from '../components/Dashboard.vue';
@@ -39,6 +40,12 @@ const routes: Array<RouteRecordRaw> = [
     path:'/working',
     name:'Working',
     component:Working,
+    meta:{requireAuth:false, isLogin:false}
+  },
+  {
+    path:'/registration',
+    name:'Registration',
+    component:Registration,
     meta:{requireAuth:false, isLogin:false}
   },
   {
