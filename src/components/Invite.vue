@@ -8,7 +8,7 @@
                         <img class="h-12 w-12" src="beer.png" alt="Piwo">
                     </div>
                     <div class="ml-5 flex items-baseline space-x-4">
-                        <a href="/RatingCenter" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Centrum ocen</a>
+                        <a href="/ratingcenter" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Centrum ocen</a>
                         <a href="/invite" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Zaproszenia</a>
                         <a href="/ratedbefore" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Moje oceny</a>
                         <a href="/createDegustations"  class="bg-white text-gray px-3 py-2 rounded-md text-sm font-medium">Stwórz pokój do degustacji</a>
@@ -48,8 +48,9 @@
 
 
 <script lang="ts">
+
 import { Options, Vue } from "vue-class-component";
-export default class Dashboard extends Vue
+export default class Invite extends Vue
 {
 
     logout(){

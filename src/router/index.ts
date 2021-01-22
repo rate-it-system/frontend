@@ -5,6 +5,9 @@ import store from '../store'
 import Dashboard from '../components/Dashboard.vue';
 import Landing from '../components/Landing.vue'
 import Authors from '../components/Authors.vue'
+import Invite from '../components/Invite.vue'
+import RatingCenter from '../components/RatingCenter.vue'
+import Ratedbefore from '../components/Ratedbefore.vue'
 import Working from '../components/Working.vue'
 import UserDegustations from '../components/UserDegustations.vue';
 import Degustation from '../components/Degustation.vue';
@@ -60,6 +63,24 @@ const routes: Array<RouteRecordRaw> = [
     component:Rating,
     meta:{requireAuth:false, isLogin:false}
   },
+  {
+    path:'/ratingcenter',
+    name:'RatingCenter',
+    component:RatingCenter,
+    meta:{requireAuth:false, isLogin:false}
+  },  
+  {
+    path:'/invite',
+    name:'Invite',
+    component:Invite,
+    meta:{requireAuth:false, isLogin:false}
+  },  
+  {
+    path:'/ratedbefore',
+    name:'Ratedbefore',
+    component:Ratedbefore,
+    meta:{requireAuth:false, isLogin:false}
+  },  
   {
     path:'/dashboard',
     component:Dashboard,
