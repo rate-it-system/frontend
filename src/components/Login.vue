@@ -7,7 +7,8 @@
                     Zaloguj się
                 </h2>
                 <p class="mt-2 text-center text-sm text-gray-600">
-                    lub <a href="#" class="font-medium text-blue-400 hover:text-blue-300">zarejestruj</a>
+                    lub <router-link to="/registration" href="#" class="font-medium text-blue-400 hover:text-blue-300">Zarejestruj się</router-link>
+                  
                 </p>
             </div>
         

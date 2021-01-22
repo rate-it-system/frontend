@@ -32,6 +32,9 @@
             <a href="/working" class="font-medium text-gray-500 hover:text-gray-900">Jak to działa?</a>
 
             <router-link to="/login" href="#" class="font-medium text-indigo-600 hover:text-indigo-500">Zaloguj się</router-link>
+
+             <router-link to="/registration" href="#" class="font-medium text-indigo-600 hover:text-indigo-500">Zarejestruj się</router-link>
+             
           </div>
         </nav>
       </div>
@@ -72,6 +75,7 @@
               <router-link to="/login" class="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100" role="menuitem">
                 Log in
               </router-link>
+              
             </div>
           </div>
         </div>
