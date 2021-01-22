@@ -17,7 +17,7 @@
                     </div>
                      <div>
                         <label for="email" class="sr-only">Email</label>
-                        <text-input placeholder='Email' type='text' v-model="login" id='Email' />
+                        <text-input placeholder='Email' type='text' v-model="email" id='Email' />
                     </div>
                     <div>
                         <label for="password" class="sr-only">Hasło</label>
