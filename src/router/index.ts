@@ -8,6 +8,7 @@ import Working from '../components/Working.vue'
 import UserDegustations from '../components/UserDegustations.vue';
 import Degustation from '../components/Degustation.vue';
 import CreateDegustations from '../components/createDegustations.vue';
+import Rating from '../components/Rating.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -44,6 +45,12 @@ const routes: Array<RouteRecordRaw> = [
     path:'/login',
     name:'Login',
     component:Login,
+    meta:{requireAuth:false, isLogin:false}
+  },
+  {
+    path:'/rating',
+    name:'Rating',
+    component:Rating,
     meta:{requireAuth:false, isLogin:false}
   },
   {

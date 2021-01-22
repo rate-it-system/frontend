@@ -64,9 +64,9 @@
           </div>
           <div role="menu" aria-orientation="vertical" aria-labelledby="main-menu">
             <div class="px-2 pt-2 pb-3 space-y-1" role="none">
-              <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50" role="menuitem">Twócy</a>
+              <a href="/authors" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50" role="menuitem">Twócy</a>
 
-              <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50" role="menuitem">Jak to działa?</a>
+              <a href="/working" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50" role="menuitem">Jak to działa?</a>
             </div>
             <div role="none">
               <router-link to="/login" class="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100" role="menuitem">

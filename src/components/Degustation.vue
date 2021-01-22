@@ -34,8 +34,12 @@
         <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
             <div class="px-4 py-6 sm:px-0">
                 <div class="border-4 border-dashed border-gray-200 rounded-lg h-96">
-                    <div class="min-h-screen flex items-center justify-center bg-gray-100 bg-scroll bg-center bg-cover px-2 sm:px-0" style="background-image: url('background.jpg')">
-
+                    <div class="d-flex flex-column mb-6">
+                      <div class="flex justify-center">Eluwina</div>
+                      <p class="flex justify-center">Eluwina</p>
+                    </div>
+                    <div>
+                        <Button text='Start' v-on:click="start" />
                     </div>
                 </div>
             </div>

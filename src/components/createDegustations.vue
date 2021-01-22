@@ -33,23 +33,21 @@
     <main class="h-max">
         <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
             <div class="px-4 py-6 sm:px-0">
-                <div class="border-4 border-dashed border-gray-200 rounded-lg h-96">
-                    <div class="min-h-screen flex items-center justify-center bg-gray-100 bg-scroll bg-center bg-cover px-2 sm:px-0" style="background-image: url('background.jpg')">
-                        <div class="max-w-md w-full space-y-8 bg-white border-2 border-indigo-700 rounded-md p-3 shadow-xl">
-                            <div class="mt-8 space-y-6">
-                                <div class="rounded-md shadow-sm -space-y-px">
-                                    <div>
-                                        <label class="sr-only">Nazwa Pokoju</label>
-                                        <text-input placeholder='Nazwa pokoju do degustacji' type='text' v-model="message" id='name' />
-                                    </div>
-                                </div>
-                                <div>
-                                    <Button text='Stwórz pokój' v-on:click="create" />
-                                </div>
-                            </div>
-                        </div>
+              <div class="min-h-screen flex items-center justify-center bg-gray-100 bg-scroll bg-center bg-cover px-2 sm:px-0" style="background-image: url('background.jpg')">
+                <div class="max-w-md w-full space-y-8 bg-white border-2 border-indigo-700 rounded-md p-3 shadow-xl">
+                  <div class="mt-8 space-y-6">
+                    <div class="rounded-md shadow-sm -space-y-px">
+                      <div>
+                        <label class="sr-only">Nazwa Pokoju</label>
+                        <text-input placeholder='Nazwa pokoju do degustacji' type='text' v-model="message" id='name' />
+                      </div>
                     </div>
+                    <div>
+                      <Button text='Stwórz pokój' v-on:click="create" />
+                    </div>
+                  </div>
                 </div>
+              </div>
             </div>
         </div>
     </main>
@@ -76,11 +74,7 @@ import { Options, Vue } from 'vue-class-component';
 
 })
 export default class Login extends Vue {
-    private name = "Co ja tutaj robię";
     create(){
-        const degustation = new Degustation();
-        degustation.name = this.name;
-        this.$store.commit('setDegustation',degustation);
         this.$router.push({name:"Degustation"});
     }
 
