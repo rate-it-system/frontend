@@ -20,6 +20,9 @@ const store = new Vuex.Store({
     }
   },
   actions: {
+    login({commit}, user, token){
+
+    }
   },
   modules: {
   }
