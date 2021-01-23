@@ -22,6 +22,12 @@ const routes = [
     meta:{requireAuth:false}
   },
   {
+    path: '/auth/:provider/callback',
+    component: {
+      template: '<div class="auth-component"></div>'
+    }
+  },
+  {
     path:'/degustation',
     name:'Degustation',
     component:Degustation,

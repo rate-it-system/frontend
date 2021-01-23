@@ -41,8 +41,7 @@
                 </div>
 
                 <div>
-                    <Button text='Github' @click="authProvider('github')" />
-                    <Button text='Zaloguj się!' v-on:click="print" />
+                    <Button text='Github' v-on:click="authProvider('github')" />
                 </div>
             </div>
         </div>
@@ -75,8 +74,25 @@ components:{Button,TextInput},
         this.$router.push({name:"MainView"});
     },
     authProvider(provider){
-        var self = this;
-        this.$auth.authenticate(provider).then
+        
+        let self = this;
+        this.$auth.authenticate(provider).then(response => {
+            self.socialLogin(provider,response)
+        }).catch(err => {
+            console.log({err:err});
+            //todo: error message
+        })
+    },
+    socialLogin(provider,response){
+        this.$http.post('http://rate-it.test/api/login/' + provider + '/callback', response)
+        .then(response =>{
+            this.$store.commit('setUser',response.data.user);
+            this.$router.push({name:"MainView"});
+        })
+        .catch(err => {
+            console.log({err:err});
+            //todo: error message
+        });
     }
 }
 }
