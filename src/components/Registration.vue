@@ -35,32 +35,30 @@
     </div>
 </template>
 
-<script lang="ts">
+<script>
 import { User } from '@/models/User';
-import { Options, Vue } from 'vue-class-component';
 import Button from './elements/Button.vue'
 import TextInput from './elements/TextInput.vue';
 
 
-@Options({
-    components:{
-        Button,
-        TextInput
-    }
-
-})
-export default class Registration extends Vue {
-
-    private login  = '';
-    private email = '';
-    private password = '';
-
-    print(){
+export default  {
+    data(){
+        return {
+            login:'',
+            email:'',
+            password:''
+        }
+    },
+    components:{TextInput,Button},
+    methods:{
+        print(){
         const user = new User();
         user.name= this.login;
         user.id = 1;
         this.$store.commit('setUser',user);
         this.$router.push({name:"MainView"});
     }
+    }
+    
 }
 </script>

@@ -41,6 +41,7 @@
                 </div>
 
                 <div>
+                    <Button text='Github' @click="authProvider('github')" />
                     <Button text='Zaloguj się!' v-on:click="print" />
                 </div>
             </div>
@@ -48,32 +49,35 @@
     </div>
 </template>
 
-<script lang="ts">
+<script>
 import { User } from '@/models/User';
-import { Options, Vue } from 'vue-class-component';
 import Button from './elements/Button.vue'
 import TextInput from './elements/TextInput.vue';
 
+export default {
 
-@Options({
-    components:{
-        Button,
-        TextInput
+data(){
+    return {
+        login:'',
+        password:'',
+        rememberMe:false
     }
+},
+components:{Button,TextInput},
+  methods:{
 
-})
-export default class Login extends Vue {
-
-    private login  = '';
-    private password = '';
-    private rememberMe = false;
-
+  
     print(){
         const user = new User();
         user.name= this.login;
         user.id = 1;
         this.$store.commit('setUser',user);
         this.$router.push({name:"MainView"});
+    },
+    authProvider(provider){
+        var self = this;
+        this.$auth.authenticate(provider).then
     }
+}
 }
 </script>

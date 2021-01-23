@@ -1,13 +1,13 @@
-import { StoreState } from 'vue'
-import { createStore } from 'vuex'
-import { User } from '@/models/User';
+import Vue from 'vue'
+import Vuex from 'vuex'
 
-export default createStore<StoreState>({
+Vue.use(Vuex)
+const store = new Vuex.Store({
   state: {
     user:null
   },
   mutations: {
-    setUser(state, user: User){
+    setUser(state, user){
       state.user = user;
       },
       removeUser(state){
@@ -15,7 +15,7 @@ export default createStore<StoreState>({
       }
   },
   getters:{
-    isLoggedIn(state): boolean {
+    isLoggedIn: state => {
       return state.user != null;
     }
   },
@@ -26,3 +26,4 @@ export default createStore<StoreState>({
 })
 
 
+export default store;

@@ -96,10 +96,9 @@
 </template>
 
 
-<script lang="ts">
-import { Vue } from "vue-class-component";
+<script>
 
-export default class Landing extends Vue {
 
+export default{
 }
 </script>

@@ -59,36 +59,28 @@
 </template>
 
 
-<script lang="ts">
+<script>
 import { User } from '@/models/User';
-import { Options, Vue } from 'vue-class-component';
 import Button from './elements/Button.vue'
 import TextInput from './elements/TextInput.vue';
 import VueSlider from 'vue-slider-component'
 import 'vue-slider-component/theme/default.css'
 
 
-@Options({
-  components:{
-    Button,
-    TextInput,
-    VueSlider
-  },
-  data () {
+
+export default {
+  data(){
     return {
+      min:1,
+      max:5,
+      name:"#Nazwa piwerka",
+      img:"beer.png",
       look: 0,
       taste: 0,
       smell: 0,
       value: 0
-
     }
-  }
-
-})
-export default class Login extends Vue {
-  private min = 1;
-  private max = 5;
-  private name = "#Nazwa Piwerka";
-  private img = "beer.png";
+  },
+  components:{Button,VueSlider}
 }
 </script>

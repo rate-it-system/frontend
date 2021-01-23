@@ -44,16 +44,18 @@
 </template>
 
 
-<script lang="ts">
+<script>
 
-import { Options, Vue } from "vue-class-component";
-export default class RatingCenter extends Vue
+
+export default
 {
-
-    logout(){
-        this.$store.commit('removeUser');
-        this.$router.push({name:'Landing'})
+    methods:{
+        logout(){
+            this.$store.commit('removeUser');
+            this.$router.push({name:'Landing'})
+        }
     }
+
 
 }
 

@@ -47,15 +47,17 @@
 </template>
 
 
-<script lang="ts">
+<script>
 
-import { Options, Vue } from "vue-class-component";
-export default class Invite extends Vue
+
+export default
 {
-
-    logout(){
-        this.$store.commit('removeUser');
-        this.$router.push({name:'Landing'})
+    data(){ return {} },
+    methods:{
+        logout(){
+            this.$store.commit('removeUser');
+            this.$router.push({name:'Landing'})
+        }
     }
 
 }

@@ -47,16 +47,19 @@
 </template>
 
 
-<script lang="ts">
-
-import { Options, Vue } from "vue-class-component";
-export default class Ratedbefore extends Vue
+<script>
+export default
 {
-
-    logout(){
+    data(){
+        return {}
+    },
+    methods:{
+        logout(){
         this.$store.commit('removeUser');
         this.$router.push({name:'Landing'})
     }
+    }
+    
 
 }
 

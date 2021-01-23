@@ -5,21 +5,20 @@
 </template>
 
 
-<script lang="ts">
+<script>
 
 import { Degustation } from "@/models/Degustation";
-import { Options, Vue } from "vue-class-component";
 import DegustationCard from './elements/DegustationCard.vue';
 
-@Options({
-    components:{
-        DegustationCard
-    }
-})
-export default class UserDegustations extends Vue{
+export default {
 
-    private degustations!: Degustation[]
+    data(){
+        return {
+            degustations:[]
+        }
 
+    },
+    components:{DegustationCard},
     mounted(){
         console.log('mounted');
     }

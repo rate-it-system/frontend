@@ -86,7 +86,7 @@
           <h1 class="text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl md:text-5xl">
             <span class="block xl:inline">Kamil Niemczycki</span><br>
             <span class="block text-indigo-600 xl:inline"> Adrian Lidzbarski </span><br>
-            <span class="block xl:inline">Dagmara Rafałko</span><br>
+            <span class="block xl:inline">Dagmara Dobrowolska</span><br>
             <span class="block text-indigo-600 xl:inline"> Sebastian Rzepecki </span><br>
             <span class="block xl:inline">Krzysztof Dąbal</span><br>
           </h1>
@@ -101,10 +101,11 @@
 </template>
 
 
-<script lang="ts">
-import { Vue } from "vue-class-component";
+<script>
 
-export default class Landing extends Vue {
-
+export default{
+  name:'Authors',
+  data(){ return {} }
 }
+
 </script>

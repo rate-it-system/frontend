@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
+import VueRouter from 'vue-router'
 import Registration from '../components/Registration.vue'
 import Login from '../components/Login.vue'
 import store from '../store'
@@ -14,7 +14,7 @@ import Degustation from '../components/Degustation.vue';
 import CreateDegustations from '../components/createDegustations.vue';
 import Rating from '../components/Rating.vue';
 
-const routes: Array<RouteRecordRaw> = [
+const routes = [
   {
     path: '/',
     name: 'Landing',
@@ -92,12 +92,12 @@ const routes: Array<RouteRecordRaw> = [
         component:UserDegustations,
         meta:{name:"Degustacje"}
       }
-    ],
+    ]
   }
-]
+];
 
-const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+const router = new VueRouter({
+  mode:'history',
   routes
 })
 
@@ -106,7 +106,7 @@ router.beforeEach((to,from,next) =>{
   
   if(to.matched.some(record => record.meta.requireAuth))
   {
-      const auth = store.getters.isLoggedIn as boolean;
+      const auth = store.getters.isLoggedIn;
       if(!auth)
         next({name:"Login"});
       else

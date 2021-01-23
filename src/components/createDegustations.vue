@@ -59,25 +59,20 @@
 </template>
 
 
-<script lang="ts">
+<script>
 
 import Button from './elements/Button.vue'
 import TextInput from './elements/TextInput.vue';
 import { Degustation } from '@/models/Degustation';
-import { Options, Vue } from 'vue-class-component';
 
-@Options({
-  components:{
-    Button,
-    TextInput
-  }
-
-})
-export default class Login extends Vue {
-  create(){
+export default{
+  data(){
+    return {}
+  },
+  components:{Button, TextInput},
+  created(){
     this.$router.push({name:"Degustation"});
   }
-
 }
 
 </script>

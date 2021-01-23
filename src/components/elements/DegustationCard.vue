@@ -17,16 +17,11 @@
     </div>
 </template>
 
-<script lang="ts">
-import { Options, Vue } from "vue-class-component";
-import { Degustation } from '@/models/Degustation';
-@Options({
-    props:{
-        degustation: Degustation
-    }
+<script>
 
-})
-export default class DegustationCard extends Vue{
-    
+import { Degustation } from '@/models/Degustation';
+
+export default {
+    props:['degustation']
 }
 </script>

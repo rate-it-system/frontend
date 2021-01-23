@@ -6,14 +6,8 @@
 
 <script>
 
-import {Options, Vue} from 'vue-class-component'
 
-@Options({
-    props:{
-       text:String
-    }
-})
-export default class Button extends Vue{
-    
+export default{
+    props:['text']
 }
 </script>

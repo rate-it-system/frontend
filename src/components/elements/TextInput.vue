@@ -3,22 +3,11 @@
 </template>
 
 
-<script lang="ts">
+<script>
 
-import {Options,Vue} from 'vue-class-component'
+export default{
+    props:['placeholder','modelValue','id','type'] 
 
-@Options({
-    props:{
-        placeholder:String,
-        modelValue:String,
-        id: String,
-        type:String
-    },
-    emits:['update:modelValue']
-
-})
-export default class TextInput extends Vue{
-    
 }
 
 </script>
