@@ -13,7 +13,7 @@
                         <a href="/ratedbefore" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Moje oceny</a>
                         <a href="/createDegustations"  class="bg-white text-gray px-3 py-2 rounded-md text-sm font-medium">Stwórz pokój do degustacji</a>
                     </div>
-                   
+
                 </div>
                  <div class="flex justify-end">
                         <span class="text-white text-sm font-medium py-2 px-3">Zalogowany jako: Jan Kowalski</span>
@@ -21,7 +21,7 @@
                     </div>
             </div>
         </div>
-        
+
     </nav>
     <header class="bg-white shadow">
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
@@ -39,7 +39,7 @@
             </div>
         </div>
     </main>
-    
+
 </div>
 </template>
 

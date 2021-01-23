@@ -56,7 +56,7 @@
                     <button class="px-1 py-2 font-xl text-white bg-indigo-400 rounded" @click="addFeature">Dodaj cechę</button>
                   </li>
                 </ul>
-                  <Button text='Stwórz degustację' v-on:click="createDegustation" />
+                  <Button text='Stwórz degustację' v-on:click="createDegustation" :disabled="isActive"/>
                 </div>
               </div>
             </div>
@@ -84,7 +84,8 @@ export default{
       name:'',
       description:'',
       features:[{value:''}],
-      products:[{value:''}]
+      products:[{value:''}],
+      isActive:false,
     }
   },
   components:{Button, TextInput},
@@ -102,6 +103,8 @@ export default{
       this.products.splice(index,1);
     },
     async createDegustation(){
+      this.isActive=true;
+
       var { data, err } = await this.$api.createDegustation(this.name, this.description);
        
       if(err == null){
@@ -117,7 +120,6 @@ export default{
           if(product.value != '')
             await this.$api.addProduct(data.id,product.value)
         }
-
         this.$router.push({name:'MainView'});
       }
     }
