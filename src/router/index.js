@@ -9,9 +9,9 @@ import Invite from '../components/Invite.vue'
 import RatingCenter from '../components/RatingCenter.vue'
 import Ratedbefore from '../components/Ratedbefore.vue'
 import Working from '../components/Working.vue'
-import UserDegustations from '../components/UserDegustations.vue';
+import UserDegustations from '../components/degustations/UserDegustations.vue';
 import Degustation from '../components/Degustation.vue';
-import CreateDegustations from '../components/createDegustations.vue';
+import CreateDegustations from '../components/degustations/createDegustations.vue';
 import Rating from '../components/Rating.vue';
 
 const routes = [
@@ -27,18 +27,7 @@ const routes = [
       template: '<div class="auth-component"></div>'
     }
   },
-  {
-    path:'/degustation',
-    name:'Degustation',
-    component:Degustation,
-    meta:{requireAuth:false, isLogin:false}
-  },
-  {
-    path:'/createDegustations',
-    name:'CreateDegustations',
-    component:CreateDegustations,
-    meta:{requireAuth:false, isLogin:false}
-  },
+  
   {
     path:'/authors',
     name:'Authors',
@@ -97,7 +86,20 @@ const routes = [
         name:'MainView',
         component:UserDegustations,
         meta:{name:"Degustacje"}
-      }
+      },
+      {
+        path:'/createDegustations',
+        name:'CreateDegustations',
+        component:CreateDegustations,
+        meta:{requireAuth:true, name: "Nowa degustacja"}
+      },
+      {
+        path:'/degustation/:id',
+        name:'Degustacja',
+        component:Degustation,
+        meta:{requireAuth:false}
+      },
+      
     ]
   }
 ];
@@ -113,18 +115,14 @@ router.beforeEach((to,from,next) =>{
   if(to.matched.some(record => record.meta.requireAuth))
   {
       const auth = store.getters.isLoggedIn;
+      console.log(auth);
       if(!auth)
         next({name:"Login"});
       else
         next();
   }
   else
-  {
-    if(to.matched.some(record => record.meta.isLogin))
-      next({name:"Dashboard"});
-    else
-      next();
-  }
+    next();
 });
 
 export default router
