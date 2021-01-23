@@ -24,10 +24,12 @@ const store = new Vuex.Store({
       return state.user != null && state.token !== '';
     },
     token: state => state.token,
-    tokenHeader: state => "Bearer " + state.token
+    tokenHeader: state => "Bearer " + state.token,
+    user: state => state.user
   },
   actions: {
     login({commit}, user){
+      console.log(user);
       commit('setUser',user);
     },
     logout({commit}){
