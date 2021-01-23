@@ -1,4 +1,4 @@
-import axios from 'axios'
+import store from '../store/index'
 
 
 export default{
@@ -23,10 +23,37 @@ export default{
                 .catch(error => this.error(error));
 
             },
-            extract(response){
+            async getDegustations(){
+                return await this.$http.get('/degustations?api_token=' + this.getToken())
+                .then(response => this.extract(response))
+                .catch(error => this.error(error));
+            },
+            async getDegustation(id){
+                return await this.$http.get('/degustation/' + id + '/?api_token=' + this.getToken())
+                .then(response => this.extract(response))
+                .catch(error => this.error(error));
+            },
+            async createDegustation(name, description){
 
+                var request = {
+                    name: name,
+                    description,
+                    api_token:this.getToken()
+                };
+
+                return await this.$http.post('/degustations', request)
+                .then(response => this.extract(response))
+                .catch(error => this.error(error));
+            },
+
+
+
+
+            extract(response){
+                        console.log(response);
                 if(response != null && response.data != null)
                 {
+                    console.log('response data');
                     return {data: response.data, err: null};
                 }
                 else
@@ -37,7 +64,7 @@ export default{
                 return {data:null, error:error}
             },
             getToken(){
-                return this.$store.getters.tokenHeader
+                return store.getters.token
             },
             addTokenToRequest(request){
                 request['api_token'] = this.getToken()
