@@ -15,7 +15,7 @@ export default {
     },
     methods:{
         logout(){
-        this.$store.commit('removeUser');
+        this.$store.dispatch('logout');
         this.$router.push({name:'Landing'})
     }
     }
