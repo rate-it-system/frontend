@@ -4,27 +4,35 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 const store = new Vuex.Store({
   state: {
-    user:null
+    user:{},
+    token:''
   },
   mutations: {
     setUser(state, user){
       state.user = user;
       },
-      removeUser(state){
-        state.user = null;
-      }
+    setToken(state,token){
+      state.token = token;
+    },
+    removeUser(state){
+        state.user = {};
+        state.token = ''
+    }
   },
   getters:{
     isLoggedIn: state => {
-      return state.user != null;
-    }
+      return state.user != null && state.token !== '';
+    },
+    token: state => state.token,
+    tokenHeader: state => "Bearer " + state.token
   },
   actions: {
-    login({commit}, user, token){
-
+    login({commit}, user){
+      commit('setUser',user);
+    },
+    logout({commit}){
+      commit('removeUser');
     }
-  },
-  modules: {
   }
 })
 

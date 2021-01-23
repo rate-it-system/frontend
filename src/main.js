@@ -7,8 +7,9 @@ import VueSocialAuth from 'vue-social-auth'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import './index.css'
+import Api from './api/rateitApi'
 
-
+axios.defaults.baseURL = process.env.VUE_APP_API_URL
 
 Vue.use(VueSocialAuth,{ providers:{
     github:{
@@ -18,6 +19,7 @@ Vue.use(VueSocialAuth,{ providers:{
 }});
 Vue.use(VueAxios, axios)
 Vue.use(VueRouter);
+Vue.use(Api);
 
 new Vue({
     router,

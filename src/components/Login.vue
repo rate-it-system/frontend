@@ -39,40 +39,42 @@ data(){
         isLoggingIn:false
     }
 },
+mounted(){
+    console.log(this.$api);
+    
+},
 components:{Button},
   methods:{
 
-  
-    print(){
-        const user = new User();
-        user.name= this.login;
-        user.id = 1;
-        this.$store.commit('setUser',user);
-        this.$router.push({name:"MainView"});
-    },
-    authProvider(provider){
+    async authProvider(provider){
         
         this.isLoggingIn = true;
-        let self = this;
-        this.$auth.authenticate(provider).then(response => {
-            self.socialLogin(provider,response)
-        }).catch(err => {
-            console.log({err:err});
-            this.isLoggingIn = false;
-        })
-    },
-    socialLogin(provider,response){
-        this.$http.post('http://rate-it.test/api/login/' + provider + '/callback', response)
-        .then(response =>{
-            console.log(response.data);
-            this.$store.commit('setUser',response.data.user);
-            this.$router.push({name:"MainView"});
-            this.isLoggingIn = true;
-        })
-        .catch(err => {
-            console.log({err:err});
-            this.isLoggingIn = false;
+
+        let authResponse = await this.$auth.authenticate(provider).catch((err) =>{
+              this.isLoggingIn=false;
+              return;
         });
+        
+    
+        let { data : tokenResponse, tokenErr} = await this.$api.socialLogin(provider, authResponse);
+        if(tokenErr != null)
+        {
+            this.isLoggingIn=false;
+            return;
+        }
+        
+        this.$store.commit('setToken',tokenResponse.token);
+
+        let { data: userResponse, userErr} = await this.$api.getUserDetails(tokenResponse.token);
+        if(userErr != null)
+        {
+            this.isLoggingIn = false;
+            return;
+        }
+        this.$store.dispatch('login', userResponse)
+        this.$router.push({name:'MainView'});
+        
+        this.isLoggingIn = false;
     }
 }
 }
