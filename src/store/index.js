@@ -5,7 +5,7 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   state: {
     user:{},
-    token:''
+    token: localStorage.getItem('auth-token') || ''
   },
   mutations: {
     setUser(state, user){
@@ -25,15 +25,20 @@ const store = new Vuex.Store({
     },
     token: state => state.token,
     tokenHeader: state => "Bearer " + state.token,
-    user: state => state.user
+    user: state => state.user,
+    hasActiveDegustation: state => state.user != null && state.user.degustation_id != null
   },
   actions: {
     login({commit}, user){
-      console.log(user);
       commit('setUser',user);
     },
     logout({commit}){
       commit('removeUser');
+      localStorage.removeItem('auth-token');
+    },
+    saveToken({commit},token){
+      commit('setToken',token);
+      localStorage.setItem('auth-token',token);
     }
   }
 })

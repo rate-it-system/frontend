@@ -25,7 +25,8 @@ const routes = [
     path: '/auth/:provider/callback',
     component: {
       template: '<div class="auth-component"></div>'
-    }
+    },
+    meta:{requireAuth:false}
   },
   
   {
@@ -58,18 +59,8 @@ const routes = [
     component:Rating,
     meta:{requireAuth:false, isLogin:false}
   },
-  {
-    path:'/ratingcenter',
-    name:'RatingCenter',
-    component:RatingCenter,
-    meta:{requireAuth:false, isLogin:false}
-  },  
-  {
-    path:'/invite',
-    name:'Invite',
-    component:Invite,
-    meta:{requireAuth:false, isLogin:false}
-  },  
+  
+ 
   {
     path:'/ratedbefore',
     name:'Ratedbefore',
@@ -97,9 +88,20 @@ const routes = [
         path:'/degustation/:id',
         name:'Degustacja',
         component:Degustation,
-        meta:{requireAuth:false}
+        meta:{requireAuth:true}
       },
-      
+      {
+        path:'/invite',
+        name:'Invite',
+        component:Invite,
+        meta:{requireAuth:true}
+      }, 
+      {
+        path:'/ratingcenter',
+        name:'RatingCenter',
+        component:RatingCenter,
+        meta:{requireAuth:true}
+      },   
     ]
   }
 ];

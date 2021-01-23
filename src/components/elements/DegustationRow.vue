@@ -19,13 +19,21 @@
                  {{degustation.name}}
               </td>
               <td class="px-6 py-4 whitespace-nowrap">
-                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                <span class="px-2 inline-flex text-xs leading-5 font-semibold truncate rounded-full bg-green-100 text-green-800">
                   
                    {{degustation.description}}
                 </span>
               </td>
               <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                 {{status}}
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-indigo-500">
+                  <span v-if="isOwner">
+                    {{degustation.invitation_key}}
+                  </span>
+              </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                 {{degustation.owner.login}}
               </td>
               <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                 <router-link to="" v-if="canStart" class="text-green-600 hover:text-green-500">Rozpocznij</router-link>

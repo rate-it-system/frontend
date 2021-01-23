@@ -8,10 +8,11 @@
                         <img class="h-12 w-12" src="beer.png" alt="Piwo" v-on:click="$router.push({name:'MainView'})">
                     </div>
                     <div class="ml-5 flex items-baseline space-x-4">
-                        <router-link to="/RatingCenter" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Centrum ocen</router-link>
+                        <router-link to="/ratingcenter" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Centrum ocen</router-link>
                         <router-link to="/invite" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Zaproszenia</router-link>
                         <router-link to="/ratedbefore" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Moje oceny</router-link>
-                        <router-link to="/createDegustations"  class="bg-white text-gray px-3 py-2 rounded-md text-sm font-medium">Stwórz pokój do degustacji</router-link>
+                        <router-link to="/createDegustations"  class="bg-white text-gray px-3 py-2 rounded-md text-sm font-medium">Stwórz degustację</router-link>
+                        <router-link v-show="hasActiveDegustation" to="/processDegustation" class="bg-green-500 text-white px-3 py-2 rounded-md text-sm font-medium">Kontynuuj degustację</router-link>
                     </div>
                    
                 </div>
@@ -43,10 +44,15 @@
 <script>
 
 import UserStatus from './elements/UserStatus.vue'
+import {mapGetters} from 'vuex'
 export default
 {
     components:{
         UserStatus
+    },
+    computed:{
+        ...mapGetters(['user','hasActiveDegustation']),
+        
     }
    
 

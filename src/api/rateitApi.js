@@ -46,8 +46,58 @@ export default{
                 .catch(error => this.error(error));
             },
 
+            /* features */
 
+            async getFeatures(degustationId){
+                return await this.$http.get('/degustations/' + degustationId + '/features?api_token=' + this.getToken())
+                .then(response => this.extract(response))
+                .catch(error => this.error(error));
+            },
+            async addFeature(degustationId, featureName)
+            {
+                var request = {
+                    name: featureName,
+                    api_token:this.getToken()
+                };
 
+                return await this.$http.post('/degustations/' + degustationId +'/features', request)
+                .then(response => this.extract(response))
+                .catch(error => this.error(error));
+            },
+            async updateFeature(degustationId, featureId, featureName)
+            {
+                var request = {
+                    name: featureName,
+                    api_token:this.getToken()
+                };
+
+                return await this.$http.post('/degustations/' + degustationId +'/features/' + featureId, request)
+                .then(response => this.extract(response))
+                .catch(error => this.error(error));
+            },
+            async addProduct(degustationId, productName){
+                var request = {
+                    name: productName,
+                    api_token:this.getToken()
+                };
+
+                return await this.$http.post('/degustations/' + degustationId +'/products', request)
+                .then(response => this.extract(response))
+                .catch(error => this.error(error));
+            },
+            async getProducts(degustationId)
+            {
+                return await this.$http.get('/degustations/' + degustationId + '/products?api_token=' + this.getToken())
+                .then(response => this.extract(response))
+                .catch(error => this.error(error));
+            },
+
+            async useInvitationCode(code)
+            {
+                return await this.$http.get('/invitations/' + code + '?api_token=' + this.getToken())
+                .then(response => this.extract(response))
+                .catch(error => this.error(error));
+            },
 
             extract(response){
                         console.log(response);

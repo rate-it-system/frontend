@@ -63,7 +63,7 @@ components:{Button},
             return;
         }
         
-        this.$store.commit('setToken',tokenResponse.token);
+        this.$store.dispatch('saveToken',tokenResponse.token);
 
         let { data: userResponse, userErr} = await this.$api.getUserDetails(tokenResponse.token);
         if(userErr != null)
