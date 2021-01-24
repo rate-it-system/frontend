@@ -13,6 +13,7 @@ import UserDegustations from '../components/degustations/UserDegustations.vue';
 import Degustation from '../components/Degustation.vue';
 import CreateDegustations from '../components/degustations/createDegustations.vue';
 import Rating from '../components/Rating.vue';
+import UpdateDegustation from "@/components/degustations/updateDegustation";
 
 const routes = [
   {
@@ -83,6 +84,12 @@ const routes = [
         name:'CreateDegustations',
         component:CreateDegustations,
         meta:{requireAuth:true, name: "Nowa degustacja"}
+      },
+      {
+        path: '/updateDegustation/:id',
+        name: 'UpdateDegustation',
+        component: UpdateDegustation,
+        meta: { requireAuth: true, name: "Edycja degustacji" }
       },
       {
         path:'/degustation/:id',

@@ -37,7 +37,7 @@
               </td>
               <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                 <router-link to="" v-if="canStart" class="text-green-600 hover:text-green-500">Rozpocznij</router-link>
-                <router-link to="" v-if="canStart" class="ml-3 text-yellow-700 hover:text-yellow-500">Edytuj</router-link>
+                <router-link :to="`/updateDegustation/${degustation.id}`" v-if="canStart" class="ml-3 text-yellow-700 hover:text-yellow-500">Edytuj</router-link>
                 <router-link to="" v-if="canJoin" class="text-blue-600 hover:text-blue-500">Dołącz</router-link>
                 <router-link to="" v-if="finished" class="text-indigo-600 hover:text-indigo-500">Wyniki</router-link>
               </td>

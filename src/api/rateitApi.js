@@ -32,7 +32,7 @@ export default{
                 .catch(error => this.error(error));
             },
             async getDegustation(id){
-                return await this.$http.get('/degustation/' + id + '/?api_token=' + this.getToken())
+                return await this.$http.get('/degustations/' + id + '/?api_token=' + this.getToken())
                 .then(response => this.extract(response))
                 .catch(error => this.error(error));
             },
@@ -62,6 +62,12 @@ export default{
                     .catch(error => this.error(error));
             },
 
+            async deleteDegustation(id){
+                return await this.$http.delete(`/degustations/${id}?api_token=${this.getToken()}`)
+                    .then(response => this.extract(response))
+                    .catch(error => this.error(error));
+            },
+
             /* features */
 
             async getFeatures(degustationId){
@@ -87,7 +93,7 @@ export default{
             },
             async updateFeature(degustationId, featureId, featureName)
             {
-                var request = {
+                let request = {
                     name: featureName,
                     api_token:this.getToken()
                 };
@@ -95,6 +101,13 @@ export default{
                 return await this.$http.put('/degustations/' + degustationId +'/features/' + featureId, request)
                 .then(response => this.extract(response))
                 .catch(error => this.error(error));
+            },
+
+            async deleteFeature(degustationId, featureId)
+            {
+                return await this.$http.put(`/degustations/${degustationId}/features/${featureId}?api_token=${this.getToken()}`)
+                    .then(response => this.extract(response))
+                    .catch(error => this.error(error));
             },
 
             // Products
@@ -128,14 +141,21 @@ export default{
                     .catch(error => this.error(error));
             },
 
+            async deleteProduct(degustationId, productId)
+            {
+                return await this.$http.delete(`/degustations/${degustationId}/products/${productId}?api_token=${this.getToken()}`)
+                    .then(response => this.extract(response))
+                    .catch(error => this.error(error));
+            },
+
+            // Other
+
             async useInvitationCode(code)
             {
                 return await this.$http.get('/invitations/' + code + '?api_token=' + this.getToken())
                 .then(response => this.extract(response))
                 .catch(error => this.error(error));
             },
-
-            // Other
 
             extract(response){
                         console.log(response);
