@@ -9,7 +9,7 @@ export default{
             // Degustation session
 
             async readyToStart(degustation_id){
-                return await this.$http.get(`/degustations/${degustation_id}/readyToStart?api_token=${this.getToken()}`)
+                return await this.$http.get(`/degustations/${degustation_id}/redyToStart?api_token=${this.getToken()}`)
                     .then(response => this.extract(response))
                     .catch(error => this.error(error));
             },
