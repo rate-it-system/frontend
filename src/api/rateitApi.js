@@ -105,7 +105,7 @@ export default{
 
             async deleteFeature(degustationId, featureId)
             {
-                return await this.$http.put(`/degustations/${degustationId}/features/${featureId}?api_token=${this.getToken()}`)
+                return await this.$http.delete(`/degustations/${degustationId}/features/${featureId}?api_token=${this.getToken()}`)
                     .then(response => this.extract(response))
                     .catch(error => this.error(error));
             },
