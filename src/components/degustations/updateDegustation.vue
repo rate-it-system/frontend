@@ -162,7 +162,7 @@ export default{
           if(product.id !== undefined && product.value !== '')
             await this.$api.updateProduct(this.id, product.id, product.value)
           else if(product.value !== '')
-            await this.$api.addFeature(this.id, product.value)
+            await this.$api.addProduct(this.id, product.value)
         }
 
         this.removed_features.forEach(value => {
