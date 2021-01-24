@@ -79,7 +79,7 @@ export default{
                     api_token:this.getToken()
                 };
 
-                return await this.$http.post('/degustations/' + degustationId +'/features/' + featureId, request)
+                return await this.$http.put('/degustations/' + degustationId +'/features/' + featureId, request)
                 .then(response => this.extract(response))
                 .catch(error => this.error(error));
             },
@@ -110,7 +110,7 @@ export default{
                     api_token: this.getToken()
                 };
 
-                return await this.$http.post(`/degustations/${degustationId}/products/${productId}`, request)
+                return await this.$http.put(`/degustations/${degustationId}/products/${productId}`, request)
                     .then(response => this.extract(response))
                     .catch(error => this.error(error));
             },
