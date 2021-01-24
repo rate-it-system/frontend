@@ -25,9 +25,14 @@
 </template>
 <script>
   import UserStatus from './UserStatus.vue'
+  import { mapGetters } from 'vuex';
+  
   export default {
     components: {
       UserStatus
+    },
+    computed:{
+      ...mapGetters(['hasActiveDegustation'])
     }
   }
 </script>
