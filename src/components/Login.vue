@@ -4,7 +4,7 @@
             <div  v-if="!isLoggingIn">
                 <div>
                 <a href="/">
-                    <img class="mx-auto h-24 w-auto" src="beer.png">
+                    <img class="mx-auto h-24 w-auto" src="/beer.png">
                 </a>
                     <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
                         Zaloguj się
@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div v-else>
-                   <img class="mx-auto h-36 w-auto animate-spin" src="beer.png">
+                   <img class="mx-auto h-36 w-auto animate-spin" src="/beer.png">
                    <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">Trwa Logowanie</h2>
             </div>
         </div>

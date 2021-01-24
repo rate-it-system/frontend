@@ -5,7 +5,7 @@
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center">
                   <div class="flex-shrink-0">
-                    <img class="h-12 w-12" src="beer.png" alt="Piwo" v-on:click="$router.push({name:'MainView'})">
+                    <img class="h-12 w-12" src="/beer.png" alt="Piwo" v-on:click="$router.push({name:'MainView'})">
                   </div>
                     <div class="ml-5 flex items-baseline space-x-4">
                         <router-link to="/ratingcenter" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Centrum ocen</router-link>

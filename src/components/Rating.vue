@@ -74,7 +74,7 @@ export default {
       min:1,
       max:5,
       name:"#Nazwa piwerka",
-      img:"beer.png",
+      img:"/beer.png",
       look: 0,
       taste: 0,
       smell: 0,
