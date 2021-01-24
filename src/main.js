@@ -15,6 +15,14 @@ Vue.use(VueSocialAuth,{ providers:{
     github:{
         clientId: process.env.VUE_APP_GITHUB_CLIENT_ID,
         redirectUri: process.env.VUE_APP_GITHUB_CALLBACK
+    },
+    facebook:{
+        clientId: process.env.VUE_APP_FACEBOOK_CLIENT_ID,
+        redirectUri: process.env.VUE_APP_FACEBOOK_CALLBACK
+    },
+    google:{
+        clientId: process.env.VUE_APP_GOOGLE_CLIENT_ID,
+        redirectUri: process.env.VUE_APP_GOOGLE_CALLBACK
     }
 }});
 Vue.use(VueAxios, axios)

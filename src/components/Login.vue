@@ -12,7 +12,9 @@
                 </div>
             
                 <div class="mt-8 space-y-6">                    
-                        <Button text='Zaloguj się przez Github' v-on:click="authProvider('github')" />
+                        <Button text='Zaloguj się przez konto Github' v-on:click="authProvider('github')" />
+                        <Button text='Zaloguj się przez konto Facebook' v-on:click="authProvider('facebook')" />
+                        <Button text='Zaloguj się przez konto Google' v-on:click="authProvider('google')" />
                         <Button text='Powrót' v-on:click="$router.push('/')" />
                 </div>
             </div>
@@ -31,39 +33,39 @@ import TextInput from './elements/TextInput.vue';
 
 export default {
 
-data(){
-    return {
-        login:'',
-        password:'',
-        rememberMe:false,
-        isLoggingIn:false
-    }
-},
-mounted(){
-    console.log(this.$api);
-    
-},
-components:{Button},
-  methods:{
+  data(){
+      return {
+          login:'',
+          password:'',
+          rememberMe:false,
+          isLoggingIn:false
+      }
+  },
+  mounted(){
+      console.log(this.$api);
 
-    async authProvider(provider){
-        
+  },
+  components:{Button},
+    methods:{
+
+      async authProvider(provider){
+
         this.isLoggingIn = true;
 
         let authResponse = await this.$auth.authenticate(provider).catch((err) =>{
               this.isLoggingIn=false;
               return;
         });
-        
-    
+
+
         let { data : tokenResponse, tokenErr} = await this.$api.socialLogin(provider, authResponse);
         if(tokenErr != null)
         {
             this.isLoggingIn=false;
             return;
         }
-        
-        this.$store.dispatch('saveToken',tokenResponse.token);
+
+        await this.$store.dispatch('saveToken', tokenResponse.token);
 
         let { data: userResponse, userErr} = await this.$api.getUserDetails(tokenResponse.token);
         if(userErr != null)
@@ -71,11 +73,11 @@ components:{Button},
             this.isLoggingIn = false;
             return;
         }
-        this.$store.dispatch('login', userResponse)
-        this.$router.push({name:'MainView'});
-        
+        await this.$store.dispatch('login', userResponse)
+        await this.$router.push({name: 'MainView'});
+
         this.isLoggingIn = false;
-    }
-}
+      }
+  }
 }
 </script>
