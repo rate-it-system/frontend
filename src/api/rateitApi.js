@@ -5,7 +5,51 @@ export default{
         Vue.prototype.$api = {
 
             $http: Vue.prototype.$http,
-            
+
+            // Degustation session
+
+            async readyToStart(degustation_id){
+                return await this.$http.get(`/degustations/${degustation_id}/readyToStart?api_token=${this.getToken()}`)
+                    .then(response => this.extract(response))
+                    .catch(error => this.error(error));
+            },
+
+            async sessionStart(){
+                return await this.$http.get(`/session/start?api_token=${this.getToken()}`)
+                    .then(response => this.extract(response))
+                    .catch(error => this.error(error));
+            },
+
+            async sessionIsStarted(){
+                return await this.$http.get(`/session/isStarted?api_token=${this.getToken()}`)
+                    .then(response => this.extract(response))
+                    .catch(error => this.error(error));
+            },
+
+            async sessionCurrentProduct(){
+                return await this.$http.get(`/session/currentProduct?api_token=${this.getToken()}`)
+                    .then(response => this.extract(response))
+                    .catch(error => this.error(error));
+            },
+
+            async sessionRateProduct(feature_id, rate){
+                return await this.$http.get(`/session/currentProduct/${feature_id}/rate/${rate}?api_token=${this.getToken()}`)
+                    .then(response => this.extract(response))
+                    .catch(error => this.error(error));
+            },
+
+            async sessionProgressProduct(){
+                return await this.$http.get(`/session/progressProduct?api_token=${this.getToken()}`)
+                    .then(response => this.extract(response))
+                    .catch(error => this.error(error));
+            },
+
+            async sessionNextProduct(){
+                return await this.$http.get(`/session/nextProduct?api_token=${this.getToken()}`)
+                    .then(response => this.extract(response))
+                    .catch(error => this.error(error));
+            },
+
             // User
 
             async socialLogin(provider, authResponse){
