@@ -1,14 +1,14 @@
 import store from '../store/index'
 
-
 export default{
     install(Vue, options){
         Vue.prototype.$api = {
 
             $http: Vue.prototype.$http,
             
-            
-            async socialLogin(provider,authResponse){
+            // User
+
+            async socialLogin(provider, authResponse){
                     
                 return await this.$http.post('/login/' + provider + '/callback', authResponse)
                     .then((response) =>{
@@ -23,6 +23,9 @@ export default{
                 .catch(error => this.error(error));
 
             },
+
+            // Degustations
+
             async getDegustations(){
                 return await this.$http.get('/degustations?api_token=' + this.getToken())
                 .then(response => this.extract(response))
@@ -53,6 +56,11 @@ export default{
                 .then(response => this.extract(response))
                 .catch(error => this.error(error));
             },
+            async getFeatureDetails(degustationId, featureId){
+                return await this.$http.get('/degustations/' + degustationId + `/features${featureId}?api_token=` + this.getToken())
+                    .then(response => this.extract(response))
+                    .catch(error => this.error(error));
+            },
             async addFeature(degustationId, featureName)
             {
                 var request = {
@@ -75,6 +83,9 @@ export default{
                 .then(response => this.extract(response))
                 .catch(error => this.error(error));
             },
+
+            // Products
+
             async addProduct(degustationId, productName){
                 var request = {
                     name: productName,
@@ -91,6 +102,18 @@ export default{
                 .then(response => this.extract(response))
                 .catch(error => this.error(error));
             },
+            async updateProduct(degustationId, productId, productName, productDescription)
+            {
+                let request = {
+                    name: productName,
+                    description: productDescription,
+                    api_token: this.getToken()
+                };
+
+                return await this.$http.post(`/degustations/${degustationId}/products/${productId}`, request)
+                    .then(response => this.extract(response))
+                    .catch(error => this.error(error));
+            },
 
             async useInvitationCode(code)
             {
@@ -98,6 +121,8 @@ export default{
                 .then(response => this.extract(response))
                 .catch(error => this.error(error));
             },
+
+            // Other
 
             extract(response){
                         console.log(response);
