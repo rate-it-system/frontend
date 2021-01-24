@@ -3,7 +3,7 @@
         <div class="max-w-md w-full space-y-8 bg-white border-2 border-indigo-700 rounded-md p-3 shadow-xl">
             <div>
                <a href="/">
-                 <img class="mx-auto h-24 w-auto" src="beer.png">
+                 <img class="mx-auto h-24 w-auto" src="/beer.png">
               </a>
                 <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
                     Zarejestruj się
