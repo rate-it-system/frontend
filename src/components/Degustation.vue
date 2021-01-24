@@ -15,10 +15,6 @@
             </div>
 
           </div>
-          <div class="flex justify-end">
-            <span class="text-white text-sm font-medium py-2 px-3">Zalogowany jako: Jan Kowalski</span>
-            <a href="#" @click="logout" class="bg-gray-600 text-white px-3 py-2 rounded-md text-sm font-medium">Wyloguj</a>
-          </div>
         </div>
       </div>
 
