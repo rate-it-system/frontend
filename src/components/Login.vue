@@ -38,7 +38,7 @@ export default {
           login:'',
           password:'',
           rememberMe:false,
-          isLoggingIn:false
+          isLoggingIn:false //czy aktualnie trwa proces logowania i należy pokazać zaślepkę
       }
   },
   mounted(){
@@ -52,22 +52,25 @@ export default {
 
         this.isLoggingIn = true;
 
+        //vue-social-auth obsługuje proces uzyskania zgody na dodanie konta
         let authResponse = await this.$auth.authenticate(provider).catch((err) =>{
               this.isLoggingIn=false;
               return;
         });
 
+        //Backend - wysłać kod, uzyskujemy api_token w odpowiedzi
+        let { data, err } = await this.$api.socialLogin(provider, authResponse);
 
-        let { data : tokenResponse, tokenErr} = await this.$api.socialLogin(provider, authResponse);
-        if(tokenErr != null)
+        if(err != null)
         {
             this.isLoggingIn=false;
             return;
         }
 
-        await this.$store.dispatch('saveToken', tokenResponse.token);
-
-        let { data: userResponse, userErr} = await this.$api.getUserDetails(tokenResponse.token);
+        //Zapisujemy token do Vuex i localStorage
+        await this.$store.dispatch('saveToken', data.token);
+        //Pobieramy szczegóły użytkownika, zapisujemy do Vuex
+        let { data: userResponse, err: userErr} = await this.$api.getUserDetails(data.token);
         if(userErr != null)
         {
             this.isLoggingIn = false;

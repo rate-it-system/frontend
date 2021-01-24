@@ -102,6 +102,7 @@ export default{
     removeProduct(index){
       this.products.splice(index,1);
     },
+    //Tworzy degustację i dopisuje do niej wszystkie wpisane produkty i cechy
     async createDegustation(){
       this.isActive=true;
 

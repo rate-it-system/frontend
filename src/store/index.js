@@ -7,6 +7,12 @@ const store = new Vuex.Store({
     user:{},
     token: localStorage.getItem('auth-token') || ''
   },
+
+
+
+
+
+  
   mutations: {
     setUser(state, user){
       state.user = user;
