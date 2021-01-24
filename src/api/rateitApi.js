@@ -49,6 +49,19 @@ export default{
                 .catch(error => this.error(error));
             },
 
+            async updateDegustation(id, name, description){
+
+                var request = {
+                    name,
+                    description,
+                    api_token: this.getToken()
+                };
+
+                return await this.$http.put(`/degustations/${id}`, request)
+                    .then(response => this.extract(response))
+                    .catch(error => this.error(error));
+            },
+
             /* features */
 
             async getFeatures(degustationId){
